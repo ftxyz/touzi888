@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# 允许所有搜索引擎抓取
+User-agent: Googlebot
+Allow: /
+
+# 禁止抓取后台和管理页面
+Disallow: /admin/
+Disallow: /wp-admin/
+Disallow: /*.pdf$
+Disallow: /*.doc$
+Disallow: /*.xls$
+
+# 设置抓取延迟
+Crawl-delay: 1
+
+# 指定sitemap位置
+Sitemap: https://money888.com/sitemap.xml
