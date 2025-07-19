@@ -3,143 +3,311 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>投资规划计算器 - 在线复利理财计算工具 | Money888</title>
-    <meta name="description" content="专业的在线投资规划计算器，支持复利计算、定投计划、理财目标设定。帮助您制定科学的财富增长计划，实现百万梦想。免费使用，无需注册。">
-    <meta name="keywords" content="投资计算器,理财规划,复利计算,定投计算,财富增长,投资计划,理财工具">
-    <meta name="author" content="Money888理财团队">
-    <meta name="robots" content="index,follow">
+    <title>投资规划计算器 | Money99.top</title>
+    <meta name="description" content="专业的在线投资规划计算器，左右分屏显示，激励语录整合在投资计划中">
+    <meta name="keywords" content="投资计算器,理财规划,复利计算,定投计划">
+    <link rel="canonical" href="https://money99.top/">
     
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="投资规划计算器 - 在线复利理财计算工具">
-    <meta property="og:description" content="专业的在线投资规划计算器，帮助您制定科学的财富增长计划，实现百万梦想。支持复利计算、定投计划、理财目标设定。">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://money888.com/">
-    <meta property="og:site_name" content="Money888">
-    
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="投资规划计算器 - 在线复利理财计算工具">
-    <meta name="twitter:description" content="专业的在线投资规划计算器，帮助您制定科学的财富增长计划">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://money888.com/">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #1e293b;
+            line-height: 1.6;
+            padding: 1rem;
+        }
+
+        .main-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .main-title h1 {
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-title p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+        }
+
+        .content-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .top-section {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .left-section, .right-section {
+            flex: 1;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            color: #2563eb;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .input-group {
+            margin-bottom: 1rem;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 0.5rem;
+            font-size: 0.95rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .calculate-btn {
+            width: 100%;
+            padding: 0.75rem;
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+        }
+
+        .calculate-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 15px -3px rgba(37, 99, 235, 0.4);
+        }
+
+        .bottom-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-top: 1rem;
+        }
+
+        .result-card {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            border: 1px solid #bae6fd;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 1.1rem;
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+        }
+
+        .result-item .label {
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .result-item .value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #10b981;
+        }
+
+        .motivation-line {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            padding: 1rem;
+            border-radius: 0.75rem;
+            margin-top: 1rem;
+            text-align: center;
+            font-size: 1.125rem;
+            color: #92400e;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .details-table {
+            background: white;
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+            margin-top: 1rem;
+        }
+
+        .table-header, .table-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            padding: 1rem;
+            text-align: center;
+            font-size: 0.875rem;
+        }
+
+        .table-header {
+            background: #2563eb;
+            color: white;
+            font-weight: 600;
+        }
+
+        .table-row {
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .table-row:hover {
+            background: #f8fafc;
+        }
+
+        .empty-state {
+            text-align: center;
+            color: #64748b;
+            font-size: 1.25rem;
+            padding: 3rem;
+        }
+
+        .empty-state-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        .highlight {
+            color: #10b981;
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        @media (max-width: 768px) {
+            .top-section {
+                flex-direction: column;
+            }
+            
+            .left-section, .right-section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>投资规划计算器</h1>
-            <p>把大目标拆解成小步骤，一步一个脚印实现财富梦想</p>
-            <!-- Schema.org结构化数据 -->
-            <script type="application/ld+json">
-            {
-                "@context": "https://schema.org",
-                "@type": "WebSite",
-                "name": "Money888投资规划计算器",
-                "alternateName": "在线投资理财计算工具",
-                "url": "https://money888.com",
-                "description": "专业的在线投资规划计算器，帮助用户制定科学的财富增长计划",
-                "publisher": {
-                    "@type": "Organization",
-                    "name": "Money888",
-                    "url": "https://money888.com"
-                },
-                "mainEntity": {
-                    "@type": "WebApplication",
-                    "name": "投资规划计算器",
-                    "applicationCategory": "FinanceApplication",
-                    "operatingSystem": "Web",
-                    "offers": {
-                        "@type": "Offer",
-                        "price": "0",
-                        "priceCurrency": "CNY"
-                    }
-                }
-            }
-            </script>
-        </header>
-
-        <main>
-            <div class="calculator">
-                <h2>设定你的财富目标</h2>
-                
-                <div class="input-group">
-                    <label for="targetAmount">目标金额（万元）</label>
-                    <input type="number" id="targetAmount" placeholder="100" min="1" step="0.1">
-                </div>
-
-                <div class="input-group">
-                    <label for="initialAmount">初始资金（万元）</label>
-                    <input type="number" id="initialAmount" placeholder="10" min="0" step="0.1">
-                </div>
-
-                <div class="input-group">
-                    <label for="years">投资年限（年）</label>
-                    <input type="number" id="years" placeholder="10" min="1" max="50">
-                </div>
-
-                <div class="input-group">
-                    <label for="annualRate">年化收益率（%）</label>
-                    <input type="number" id="annualRate" placeholder="10" min="0" max="30" step="0.1">
-                </div>
-
-                <button onclick="calculateInvestment()">计算投资计划</button>
-            </div>
-
-            <div id="result" class="result" style="display: none;">
-                <h3>你的投资计划</h3>
-                <div class="result-card">
-                    <div class="result-item">
-                        <span class="label">每年需要投入：</span>
-                        <span class="value" id="yearlyAmount">-</span>
-                    </div>
-                    <div class="result-item">
-                        <span class="label">每月需要投入：</span>
-                        <span class="value" id="monthlyAmount">-</span>
-                    </div>
-                    <div class="result-item">
-                        <span class="label">每周需要投入：</span>
-                        <span class="value" id="weeklyAmount">-</span>
-                    </div>
-                    <div class="result-item">
-                        <span class="label">每日需要投入：</span>
-                        <span class="value" id="dailyAmount">-</span>
-                    </div>
-                </div>
-
-                <div class="motivation">
-                    <p id="motivationText">只要坚持每天存入<span class="highlight" id="dailyHighlight">-</span>元，
-                    <span id="yearsHighlight">-</span>年后你就能实现<span class="highlight" id="targetHighlight">-</span>万元的财富目标！</p>
-                </div>
-
-                <button onclick="showDetails()">查看详细计划</button>
-                <div id="details" class="details" style="display: none;">
-                    <h4>年度投资明细</h4>
-                    <div id="yearlyDetails"></div>
-                </div>
-            </div>
-        </main>
-
-        <footer>
-            <p>投资有风险，入市需谨慎。本计算器仅供参考，不构成投资建议。</p>
-        </footer>
+    <div class="main-title">
+        <h1>💰 投资规划计算器</h1>
+        <p>把大目标拆解成小步骤，一步一个脚印实现财富梦想</p>
     </div>
 
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'GA_MEASUREMENT_ID');
-    </script>
-    
-    
+    <div class="content-container">
+        <!-- 上方：目标设定（左）+ 投资计划（右） -->
+        <div class="top-section">
+            <!-- 左侧：设定目标 -->
+            <div class="left-section">
+                <h2 class="section-title">🎯 设定你的财富目标</h2>
+                
+                <div class="input-group">
+                    <label for="targetAmount">📈 目标金额（万元）</label>
+                    <input type="number" id="targetAmount" placeholder="比如：100" min="1" step="0.1">
+                </div>
+
+                <div class="input-group">
+                    <label for="initialAmount">💼 初始资金（万元）</label>
+                    <input type="number" id="initialAmount" placeholder="比如：10" min="0" step="0.1">
+                </div>
+
+                <div class="input-group">
+                    <label for="years">⏰ 投资年限（年）</label>
+                    <input type="number" id="years" placeholder="比如：10" min="1" max="50">
+                </div>
+
+                <div class="input-group">
+                    <label for="annualRate">📊 年化收益率（%）</label>
+                    <input type="number" id="annualRate" placeholder="比如：10" min="0" max="30" step="0.1">
+                </div>
+
+                <button class="calculate-btn" onclick="calculateInvestment()">🚀 计算投资计划</button>
+            </div>
+
+            <!-- 右侧：投资计划 -->
+            <div class="right-section">
+                <h2 class="section-title">📋 你的投资计划</h2>
+                
+                <div id="resultContent">
+                    <div class="empty-state">
+                        <div class="empty-state-icon">💡</div>
+                        <p>在左侧填写投资信息，<br>点击计算查看详细计划！</p>
+                    </div>
+
+                    <div class="result-card" style="display: none;" id="resultCard">
+                        <h3 style="color: #2563eb; text-align: center; margin-bottom: 1rem; font-size: 1.5rem;">📊 详细投资计划</h3>
+                        
+                        <div class="result-item">
+                            <span class="label">💸 每年需要投入：</span>
+                            <span class="value" id="yearlyAmount">-</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="label">💳 每月需要投入：</span>
+                            <span class="value" id="monthlyAmount">-</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="label">💵 每周需要投入：</span>
+                            <span class="value" id="weeklyAmount">-</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="label">💰 每日需要投入：</span>
+                            <span class="value" id="dailyAmount">-</span>
+                        </div>
+                        
+                        <div class="motivation-line" id="motivationText">
+                            🎯 成功就在坚持中！每天只需 <span class="highlight" id="dailyHighlight">-</span>，
+                            <span id="yearsHighlight">-</span> 年后就能实现 <span class="highlight" id="targetHighlight">-</span>的目标！
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 下方：投资明细 -->
+        <div class="bottom-section" id="detailsSection" style="display: none;">
+            <h2 class="section-title">📊 年度投资明细</h2>
+            <div id="yearlyDetails"></div>
+        </div>
+    </div>
+
     <script src="calculator.js"></script>
 </body>
 </html>

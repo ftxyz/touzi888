@@ -50,9 +50,10 @@ function displayResults(results) {
     document.getElementById('yearsHighlight').textContent = results.years;
     document.getElementById('targetHighlight').textContent = formatCurrency(results.target, true);
 
-    document.getElementById('result').style.display = 'block';
-    
-    document.getElementById('result').scrollIntoView({ behavior: 'smooth' });
+    // 显示结果区域
+    document.querySelector('.empty-state').style.display = 'none';
+    document.getElementById('resultCard').style.display = 'block';
+    document.getElementById('detailsSection').style.display = 'block';
 }
 
 function formatCurrency(amount, isLarge = false) {
@@ -75,7 +76,7 @@ function showDetails() {
 
 function generateYearlyDetails(initialAmount, yearlyInvestment, annualRate, years) {
     let currentAmount = initialAmount;
-    let detailsHtml = '<div class="yearly-table">';
+    let detailsHtml = '<div class="details-table">';
     
     detailsHtml += '<div class="table-header">';
     detailsHtml += '<span>年份</span>';
